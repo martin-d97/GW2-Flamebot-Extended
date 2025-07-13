@@ -81,7 +81,7 @@ english = {
     
     # "KC MVP ORB" is repeated, I am not touching OG french code. It is what it is.
     "KC MVP BAD ORBS"  : "* {mvp_names} gave **{min_orb} orbs** to the **boss**",
-    "KC MVP 0 ORB": "* {mvp_names} who dodged every **orbs** in the fight",
+    "KC MVP 0 ORB": "* {mvp_names} who dodged every **orb** in the fight",
     "KC MVP ORB"  : "* {mvp_names} with only **{min_orb} orbs** collected in the fight",
     
     "MVP KC PIZZA": "* {mvp_names} should work on hitting the target at max melee range and not pretend that healing is the best solution for mechanics.",
@@ -327,8 +327,8 @@ english = {
     "MVP REGEN": "* {mvp_names} who own an insurance company denied the squad **Regeneration** with their AI tool. Luigi Mangione will not be happy about this.",
     "MVP SWIFT": "* Nice **Swiftness** uptime, {mvp_names}! Thanks to you the squad **can't** outrun a Centaur.",
     
-    "MVP QUICK MERGED": "* {mvp_names} not only failed giving **Quickness**, but other boons as well. Are you a DPS main by chance?",
-    "MVP ALAC MERGED": "* {mvp_names} not only failed giving **Alacrity**, but other boons as well! Are you a DPS main by chance?",
+    "MVP QUICK MERGED": "* {mvp_names} not only failed giving **Quickness**, but **other boons** as well. Are you a DPS main by chance?",
+    "MVP ALAC MERGED": "* {mvp_names} not only failed giving **Alacrity**, but **other boons** as well! Are you a DPS main by chance?",
     "MVP BOON MERGED": "* {mvp_names} took **boondps** role to the heart and decided to only contribute to 1 boon only.",
 
     "MVP BOON SETUP": "* {mvp_names} apparently never played this game before and doesn't know how to sort out quickness, alacrity, and heal players for the relevant subgroups. If you didn't have the commander tag, we would kick you already.",
@@ -368,6 +368,8 @@ english = {
     "FRAC"        : "## Fractals - *{wing_duration}*\n",
     "MVP"         : "## [GREAT MVP : {mvps} with {max_mvp_score} titles]\n",
     "LVP"         : "## [GREAT LVP : {lvps} with {max_lvp_score} titles]\n",
+    "LOW MVP"     : "## [LOWEST MVP : {mvps} with {min_mvp_score} titles]\n",
+    "LOW LVP"     : "## [LOWEST LVP : {lvps} with {min_lvp_score} titles]\n",
     "TIME"        : "## Total time : {run_duration}\n",
     "WINGMAN"     : "## Average wingman grade : {note_wingman:.2f}%{emote_wingman}",
     

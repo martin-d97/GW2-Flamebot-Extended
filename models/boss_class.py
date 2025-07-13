@@ -604,7 +604,7 @@ class Boss:
                 if self.get_boon_uptime(i, 'Swiftness', phase) < threshold:
                     mvp_swift_sub2.append(quick_sub2)
                     mvp_swift_sub2.append(alac_sub2)
-                    
+         
         # Manage MVPs
         
         mvp_might = []
@@ -694,6 +694,7 @@ class Boss:
 
             for mvp in mvp_alac:
                 if mvp in (mvp_might + mvp_fury + mvp_prot + mvp_regen + mvp_swift):
+                    mvp_name.append(mvp)     
                     if mvp in mvp_might:
                         mvp_might.remove(mvp)
                     if mvp in mvp_fury:
@@ -707,7 +708,7 @@ class Boss:
             
             mvp_alac = [mvp for mvp in mvp_alac if mvp not in mvp_name]
             mvp_names_2 = self.players_to_string(list(set(mvp_name)))       
-            mvp_names = self.players_to_string(list(set(mvp_alac)))     
+            mvp_names = self.players_to_string(list(set(mvp_alac)))    
             if len(mvp_name) > 0:
                 prompt += LANGUES["selected_language"]["MVP ALAC MERGED"].format(mvp_names=mvp_names_2) + "\n"
             if len(mvp_alac) > 0:

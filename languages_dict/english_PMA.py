@@ -327,8 +327,8 @@ english_PMA = {
     "MVP REGEN": "* {mvp_names} please work on your **Regeneration** uptime! It heals people every second, reducing the pressure on you to heal them when they take damage!",
     "MVP SWIFT": "* {mvp_names} please work on your **Swiftness** uptime! It helps everyone run faster, enabling them to be in places they have to go due to mechanics or phases faster!",
     
-    "MVP QUICK MERGED": "* {mvp_names} please work on your **Quickness** uptime, and on your other boons! Remember that boons are very powerful and help your allies!",
-    "MVP ALAC MERGED": "* {mvp_names} please work on your **Alacrity** uptime, and on your other boons! Remember that boons are very powerful and help your allies!",
+    "MVP QUICK MERGED": "* {mvp_names} please work on your **Quickness** uptime, and on your **other boons**! Remember that boons are very powerful and help your allies!",
+    "MVP ALAC MERGED": "* {mvp_names} please work on your **Alacrity** uptime, and on your **other boons**! Remember that boons are very powerful and help your allies!",
     "MVP BOON MERGED": "* {mvp_names} please work on your **generic boon uptime**! You are missing some uptime on some generic boons!",
 
     "MVP BOON SETUP": "* Commander {mvp_names}! It looks like something went wrong with the squad setup. Please make sure both groups have quickness, alacrity, and a healer!",
@@ -368,6 +368,8 @@ english_PMA = {
     "FRAC"        : "## Fractals - *{wing_duration}*\n",
     "MVP"         : "## [GREAT MVP : {mvps} with {max_mvp_score} titles]\n",
     "LVP"         : "## [GREAT LVP : {lvps} with {max_lvp_score} titles]\n",
+    "LOW MVP"     : "## [LOWEST MVP : {mvps} with {min_mvp_score} titles]\n",
+    "LOW LVP"     : "## [LOWEST LVP : {lvps} with {min_lvp_score} titles]\n",
     "TIME"        : "## Total time : {run_duration}\n",
     "WINGMAN"     : "## Average wingman grade : {note_wingman:.2f}%{emote_wingman}",
     

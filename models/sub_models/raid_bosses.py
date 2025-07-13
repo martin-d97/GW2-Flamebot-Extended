@@ -43,7 +43,7 @@ class VG(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_dps = self.get_lvp_dps_PMA()
@@ -167,7 +167,7 @@ class GORS(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_split = self.lvp_dmg_split()
@@ -371,7 +371,7 @@ class SABETHA(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_split = self.lvp_dmg_split()
@@ -573,7 +573,7 @@ class SLOTH(Boss):
         
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_cc = self.get_lvp_cc_boss_PMA()
@@ -771,7 +771,7 @@ class MATTHIAS(Boss):
         
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_cc = self.lvp_cc_matthias()
@@ -933,7 +933,7 @@ class ESCORT(Boss):
        
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
 
         # Check for mechanics
         msg_tower = self.lvp_tower()
@@ -1065,7 +1065,7 @@ class KC(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_orb = self.lvp_orb_kc()
@@ -1211,7 +1211,7 @@ class XERA(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_minijeu = self.lvp_minijeu()
@@ -1437,7 +1437,7 @@ class CAIRN(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_dps = self.get_lvp_dps_PMA() 
@@ -1546,7 +1546,7 @@ class MO(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_dps = self.get_lvp_dps_PMA() 
@@ -1676,7 +1676,7 @@ class SAMAROG(Boss):
     
     def get_lvp(self):        
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_cc = self.get_lvp_cc_boss_PMA()
@@ -1935,7 +1935,7 @@ class DEIMOS(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_tears = self.lvp_tears()
@@ -2140,7 +2140,7 @@ class SH(Boss):
     
     def get_lvp(self):        
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_cc = self.get_lvp_cc_boss_PMA()
@@ -2324,7 +2324,7 @@ class DHUUM(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_dps = self.get_lvp_dps_PMA()
@@ -2484,7 +2484,7 @@ class CA(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_dps = self.get_lvp_dps_PMA()
@@ -2628,7 +2628,7 @@ class LARGOS(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_lvp_cc = self.get_lvp_cc_total()
@@ -2832,7 +2832,7 @@ class Q1(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_special_roles = self.lvp_q1_special_roles()
@@ -3047,7 +3047,7 @@ class ADINA(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_split = self.lvp_dmg_split()
@@ -3190,7 +3190,7 @@ class SABIR(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_cc = self.get_lvp_cc_boss_PMA()
@@ -3324,7 +3324,7 @@ class QTP(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_cc = self.get_lvp_cc_total()
@@ -3535,7 +3535,7 @@ class GREER(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_dps = self.get_lvp_dps_PMA(3)
@@ -3621,7 +3621,6 @@ class GREER(Boss):
     # Praise the people who reflect/destroy projs
     def lvp_greer_reflect(self):
         i_players = self.get_greer_reflect()
-        print(i_players)
         if(len(i_players))>0:
             self.add_lvps(i_players)
             lvp_names = self.players_to_string(i_players)  
@@ -3778,7 +3777,7 @@ class DECIMA(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
         msg_good_dps = self.get_lvp_dps_PMA()
@@ -4056,7 +4055,7 @@ class URA(Boss):
     
     def get_lvp(self):
         # Create LVP prompt
-        lvplist = "**LVPs** \n"
+        lvplist = "\n**LVPs** \n"
         
         # Check for Mechanics
         msg_good_dps = self.get_lvp_dps_PMA()

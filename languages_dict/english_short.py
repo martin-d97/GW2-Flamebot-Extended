@@ -368,6 +368,8 @@ english_short = {
     "FRAC"        : "## Fractals - *{wing_duration}*\n",
     "MVP"         : "## [GREAT MVP : {mvps} with {max_mvp_score} titles]\n",
     "LVP"         : "## [GREAT LVP : {lvps} with {max_lvp_score} titles]\n",
+    "LOW MVP"     : "## [LOWEST MVP : {mvps} with {min_mvp_score} titles]\n",
+    "LOW LVP"     : "## [LOWEST LVP : {lvps} with {min_lvp_score} titles]\n",
     "TIME"        : "## Total time : {run_duration}\n",
     "WINGMAN"     : "## Average wingman grade : {note_wingman:.2f}%{emote_wingman}",
     

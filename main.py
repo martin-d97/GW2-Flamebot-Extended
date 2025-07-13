@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 from time import perf_counter
 import grequests
 import func
+import codecs
 
 from const import REQUEST_HEADERS, DPS_REPORT_JSON_URL, DEFAULT_LANGUAGE, DEFAULT_TITLE, DEFAULT_INPUT_FILE, ALL_BOSSES, ALL_PLAYERS
 from models.log_class import Log
@@ -56,11 +57,15 @@ def main(input_file, **kwargs) -> None:
 
 
     # Write to text file
-    with open("Flame_Output.txt", "w") as f: 
+    with open("Flame_Output.txt", "w", encoding="utf-8") as f: 
+        text_out = ""
         for i in range(len(split_run_message)): 
             text = split_run_message[i]
-            text_out = "".join([s for s in text.strip().splitlines(True) if s.strip()])      
-            f.write(text_out)
+            while "\n\n" in text and i < 100:
+                text = text.replace("\n\n","\n")
+            text_out += text
+        text_out = text_out.replace("\n\n","\n")
+        f.write(text_out)
 
 
 if __name__ == "__main__":
@@ -75,7 +80,7 @@ if __name__ == "__main__":
     # "FR"       : French, legacy code, doesn't work anymore
     # "DE"       : German, translated by someone who doesn't know German :)
     
-    LANGUES["selected_language"] = LANGUES["EN_PMA"]
+    LANGUES["selected_language"] = LANGUES["EN"]
     
     
     args = _make_parser().parse_args()

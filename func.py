@@ -75,8 +75,14 @@ def get_message_reward(logs: list, players: dict, titre="Run"):
 
     mvp = []
     lvp = []
+    low_mvp = []
+    low_lvp = []
     max_mvp_score = 1
     max_lvp_score = 1
+    min_mvp_score = 99999999
+    min_lvp_score = 99999999
+
+    # Find people with most mvp & lvp
 
     for player in players.values():
         if player.mvps > max_mvp_score:
@@ -90,8 +96,26 @@ def get_message_reward(logs: list, players: dict, titre="Run"):
         elif player.lvps == max_lvp_score:
             lvp.append(player)
 
+    # Similarly, find people with lowest mvp & lvp
+
+    for player in players.values():
+        if player.mvps < min_mvp_score:
+            min_mvp_score = player.mvps
+            low_mvp = [player]
+        elif player.mvps == min_mvp_score:
+            low_mvp.append(player)
+        if player.lvps < min_lvp_score:
+            min_lvp_score = player.lvps
+            low_lvp = [player]
+        elif player.lvps == min_lvp_score:
+            low_lvp.append(player)
+
+    # Turn these into player names
+
     mvp_names = []
     lvp_names = []
+    low_mvp_names = []
+    low_lvp_names = []
     
     for player in mvp:
         account = player.account
@@ -108,6 +132,25 @@ def get_message_reward(logs: list, players: dict, titre="Run"):
             lvp_names.append(custom_name)
         else:
             lvp_names.append(player.name)
+
+    for player in low_mvp:
+        account = player.account
+        custom_name = CUSTOM_NAMES.get(account)
+        if custom_name:
+            low_mvp_names.append(custom_name)
+        else:
+            low_mvp_names.append(player.name)
+            
+    for player in low_lvp:
+        account = player.account
+        custom_name = CUSTOM_NAMES.get(account)
+        if custom_name:
+            low_lvp_names.append(custom_name)
+        else:
+            low_lvp_names.append(player.name)
+
+    # Rest of the french code
+    # bonjour
 
     logs.sort(key=lambda log: log.start_date, reverse=False)
     wings = {}
@@ -181,11 +224,15 @@ def get_message_reward(logs: list, players: dict, titre="Run"):
     if number_boss > 2:
         mvps = ', '.join(mvp_names)
         lvps = ', '.join(lvp_names)
+        low_mvps =  ', '.join(low_mvp_names)
+        low_lvps = ', '.join(low_lvp_names)
         note_wingman = total_wingman_score / notes_nb
         if max_mvp_score > 1:
             run_message += LANGUES["selected_language"]["MVP"].format(mvps=mvps, max_mvp_score=max_mvp_score)
         if max_lvp_score > 1:
             run_message += LANGUES["selected_language"]["LVP"].format(lvps=lvps, max_lvp_score=max_lvp_score)
+        run_message += LANGUES["selected_language"]["LOW MVP"].format(mvps=low_mvps, min_mvp_score=min_mvp_score)
+        run_message += LANGUES["selected_language"]["LOW LVP"].format(lvps=low_lvps, min_lvp_score=min_lvp_score)
         run_message += LANGUES["selected_language"]["TIME"].format(run_duration=run_duration)
         run_message += LANGUES["selected_language"]["WINGMAN"].format(note_wingman=note_wingman, emote_wingman=EMOTE_WINGMAN)
 
