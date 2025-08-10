@@ -1032,6 +1032,145 @@ class Boss:
 
         # No bitches
         return
+    
+    # General function that praises for good boon uptime
+    def get_good_boons(self, phase: str, exclude: list[classmethod]=[]):
+        
+        prompt = ""
+        alac_sub1 = 69
+        alac_sub2 = 69
+        quick_sub1 = 69
+        quick_sub2 = 69
+        
+        Group_No = self.log.pjcontent['players'][2]['group']
+        
+        # Find supports
+        for i in self.player_list:
+            if self.is_alac(i):
+                if self.log.pjcontent['players'][i]['group'] == Group_No:
+                    alac_sub1 = i
+                else:
+                    alac_sub2 = i
+            if self.is_quick(i):
+                if self.log.pjcontent['players'][i]['group'] == Group_No:
+                    quick_sub1 = i
+                else:
+                    quick_sub2 = i
+
+        # If boon player situation is cringe, then automatically flamed in MVP section
+        if alac_sub1 == 69 or alac_sub2 == 69 or quick_sub1 == 69 or quick_sub2 == 69:
+            return prompt
+              
+        # Get boon uptimes
+        lvp_sub1 = []
+        lvp_sub2 = []
+        sub1 = 5
+        sub2 = 5
+        
+        threshold = 0.9 # Boon uptime threshold
+        
+        for i in self.player_list:
+            # Remove dead players
+            try:
+                if any(filter_func(i) for filter_func in exclude) or self.is_dead(i):
+                    if self.log.pjcontent['players'][i]['group'] == Group_No:
+                        sub1 = sub1 - 1
+                    else:
+                        sub2 = sub2 - 1
+                    continue
+            except:
+                if len(exclude) > 0:
+                    if i in exclude:
+                        continue
+                    if self.is_dead(i):
+                        if self.log.pjcontent['players'][i]['group'] == Group_No:
+                            sub1 = sub1 - 1
+                        else:
+                            sub2 = sub2 - 1
+                        continue
+                else:
+                    if self.is_dead(i):
+                        if self.log.pjcontent['players'][i]['group'] == Group_No:
+                            sub1 = sub1 - 1
+                        else:
+                            sub2 = sub2 - 1
+                        continue
+
+            # Might    
+            if self.log.pjcontent['players'][i]['group'] == Group_No:
+                if self.get_boon_uptime(i, 'Might', phase) > 25 * threshold:
+                    lvp_sub1.append(alac_sub1)
+            else:
+                if self.get_boon_uptime(i, 'Might', phase) > 25 * threshold:
+                    lvp_sub2.append(alac_sub2)
+            # Fury  
+            if self.log.pjcontent['players'][i]['group'] == Group_No:
+                if self.get_boon_uptime(i, 'Fury', phase) > threshold:
+                    lvp_sub1.append(alac_sub1)
+            else:
+                if self.get_boon_uptime(i, 'Fury', phase) > threshold:
+                    lvp_sub2.append(alac_sub2)
+            # Quickness 
+            if self.log.pjcontent['players'][i]['group'] == Group_No:
+                if self.get_boon_uptime(i, 'Quickness', phase) > threshold:
+                    lvp_sub1.append(quick_sub1)
+            else:
+                if self.get_boon_uptime(i, 'Quickness', phase) > threshold:
+                    lvp_sub2.append(quick_sub2)
+            # Alacrity 
+            if self.log.pjcontent['players'][i]['group'] == Group_No:
+                if self.get_boon_uptime(i, 'Alacrity', phase) > threshold:
+                    lvp_sub1.append(alac_sub1)
+            else:
+                if self.get_boon_uptime(i, 'Alacrity', phase) > threshold:
+                    lvp_sub2.append(alac_sub2)
+            # Protection
+            if self.log.pjcontent['players'][i]['group'] == Group_No:
+                if self.get_boon_uptime(i, 'Protection', phase) > threshold:
+                    lvp_sub1.append(alac_sub1)                            
+            else:
+                if self.get_boon_uptime(i, 'Protection', phase) > threshold:
+                    lvp_sub2.append(alac_sub2)
+            # Regeneration
+            if self.log.pjcontent['players'][i]['group'] == Group_No:
+                if self.get_boon_uptime(i, 'Regeneration', phase) > threshold:
+                    lvp_sub1.append(alac_sub1)
+            else:
+                if self.get_boon_uptime(i, 'Regeneration', phase) > threshold:
+                    lvp_sub2.append(alac_sub2)
+            # Swiftness   
+            if self.log.pjcontent['players'][i]['group'] == Group_No:
+                if self.get_boon_uptime(i, 'Swiftness', phase) > threshold:
+                    lvp_sub1.append(alac_sub1)
+            else:
+                if self.get_boon_uptime(i, 'Swiftness', phase) > threshold:
+                    lvp_sub2.append(alac_sub2)
+
+        # Collect boon players if they gave high boon uptime on everything
+        i_players = []
+
+        if len(lvp_sub1) > sub1 * 7 - 3 and sub1 > 0:
+            i_players.append(alac_sub1)
+            i_players.append(quick_sub1)
+        if len(lvp_sub2) > sub2 * 7 - 3 and sub2 > 0:
+            i_players.append(alac_sub2)
+            i_players.append(quick_sub2)
+
+        # Praise the boon players
+        if len(i_players) > 0:
+            self.add_lvps(i_players)
+            lvp_names = self.players_to_string(i_players)
+            prompt += LANGUES["selected_language"]["LVP BIG BOON"].format(lvp_names=lvp_names)
+        return prompt
+    
+    # General praise function
+    def get_lvp_general(self, phase: str, exclude: list[classmethod]=[]):
+        prompt = ""
+
+        # Praise supports if good boons
+        prompt = prompt + self.get_good_boons(phase) + "\n"
+
+        return prompt
 
     ################################ DATA BOSS ################################
     

@@ -238,6 +238,7 @@ english_short = {
     
     "LVP QTP ORB BACKUP": "* {lvp_names} backed up an orb",
     
+    "LVP QTP KITERS": "* {lvp_names} **pylon kiters**",
     
     ################################ GREER ################################
     
@@ -357,6 +358,8 @@ english_short = {
 
     "LVP BDPS PMA S" : "* {lvp_names} did **{dps:.1f}kdps** as **bdps** (**{dmg_ratio:.0f}%** of top DPS)",
     "LVP BDPS PMA P" : "* {lvp_names} did in total **{dps:.1f}kdps** as **bdps** (**{dmg_ratio:.0f}%** of the squad)",
+
+    "LVP BIG BOON": "* {lvp_names} good **boon uptime**",
 
     ################################ TITRES ################################
     "W1"          : "## W1 - *{wing_duration}* (without pre-VG)\n",

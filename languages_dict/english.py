@@ -238,6 +238,7 @@ english = {
     
     "LVP QTP ORB BACKUP": "* {lvp_names} prevented a wipe by backing up the **orb** when **pylon kiters** were struggling. You are the best!",
     
+    "LVP QTP KITERS": "* Looks like {lvp_names} are **pylon kiters** today. At least these DPS players contribute **something** to the society.",
     
     ################################ GREER ################################
     
@@ -357,6 +358,8 @@ english = {
 
     "LVP BDPS PMA S" : "* {lvp_names} is pumping **{dps:.1f}kdps** as **boondps** (**{dmg_ratio:.0f}%** of the top DPS)",
     "LVP BDPS PMA P" : "* {lvp_names} are pumping a total of **{dps:.1f}kdps** as **boondps** (**{dmg_ratio:.0f}%** of the squad)",
+
+    "LVP BIG BOON": "* {lvp_names} provided a **boon uptime** so high, DPS players thought they were in the golem room.",
 
     ################################ TITRES ################################
     "W1"          : "## W1 - *{wing_duration}* (without pre-VG)\n",

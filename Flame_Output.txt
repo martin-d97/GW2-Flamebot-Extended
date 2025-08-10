@@ -1,37 +1,12 @@
-# Run
-# 09/07/2025
-## W8 - *20m59s*
-## **[GREER](https://dps.report/GWZj-20250709-231803_greer)** **6m57s (86%:wing:)**
+# 10/08/2025
+## W7 - *5m41s* (without gate)
+## **[QTP CM](https://dps.report/hcyF-20250810-102935_qpeer)** **5m38s (66%:wing:)**
 **MVPs** 
-* __Damo Deathbound__ got corrupted a little too many times.
-* __Daddy Deimos__ / __Druid Dps__ / __Kevvi__ did not move during the **CC** phase and took the most hits from **orange AoEs**.
-* __Damo Deathbound__ / __ThirdOrigin__ got **knocked back**. Please help them by bringing additional stability or aegis.
-* __Zarek Bertolli__ / __Lemon Dealer__ / __Damo Deathbound__ forgot to use their **food** and/or **utility**! Please make sure that you refresh before the next boss!
+* __Locksmith God__ / __John Fking Wick__ didn't do any **CC**
+* __Beauty Pageant__ / __ThirdOrigin__ / __Rem__ / __Death Touched Lexi__ / __John Fking Wick__ got hit by the arrow mechanic. Remember, you can jump them. Work on your timing next time!
+* __Samara__ got hit by **orange circle AoE lightning hits**. Please move out, or dodge them the next time.
+* __Maybe Momo__ please work on your **Protection** uptime! It reduces strike damage your group takes, therefore people may survive longer and you will need to heal less!
+* __Locksmith God__, remember to cheer up the squad after dying early in the fight! Good morale helps a ton.
 **LVPs** 
-* __Arrow Of Fatality__ / __Druid Dps__ / __ThirdOrigin__ did a total of **109.9kdps** (**48%** of the squad). __Arrow Of Fatality__ / __Druid Dps__ used writs!
-* __Maybe Momo__ thanks for doing **5760** **CC** (**31.3%** of the squad)
-* Thank you __Arrow Of Fatality__ for focusing down the adds!
-* Thank you __Daddy Deimos__ / __Dire Omen__ / __Damo Deathbound__ / __Kevvi__ / __Maybe Momo__ / __Zarek Bertolli__ for bringing reflects/projectile defense.
-## **[DECIMA](https://dps.report/wQkY-20250709-232500_deci)** **4m23s (88%:wing:)**
-**MVPs** 
-* __ThirdOrigin__ didn't collect a lot of **greens**. Please prioritize mechanics more.
-**LVPs** 
-* __Arrow Of Fatality__ / __Druid Dps__ / __ThirdOrigin__ did a total of **104.4kdps** (**46%** of the squad). __Arrow Of Fatality__ / __Druid Dps__ used writs!
-* __Beauty Pageant__ thanks for doing **3400** **CC** (**26.3%** of the squad)
-* You should all thank __Zarek Bertolli__ for collecting **55 green ticks** (which was **26.6%** of the squad).
-## **[URA](https://dps.report/xtLW-20250709-233155_ura)** **4m46s (47%:wing:)**
-**MVPs** 
-* __Druid Dps__ / __Sam Well Tarly__ did not pick up **bloodstone shards**.
-* __Kev Shackleshot__ / __Arrow Of Fatality__ / __ThirdOrigin__ / __Sam Well Tarly__ were in a competition about who could get highest amount of **Exposed** stacks.
-* __Kev Shackleshot__ as **DPS** did as much **damage** as __Sam Well Tarly__ who is **support** as a reminder
-* __Lemon Dealer__ forgot to use their **food** and/or **utility**! Please make sure that you refresh before the next boss!
-**LVPs** 
-* __Damo Steelbound__ / __Arrow Of Fatality__ / __Druid Dps__ / __ThirdOrigin__ did a total of **118.6kdps** (**55%** of the squad). __Arrow Of Fatality__ / __Druid Dps__ used writs!
-* __Sam Well Tarly__ is pumping **23.0kdps** as **boondps** (**76%** of the top DPS)
-* Absolute gamer __Daddy Deimos__ hypercarried you by doing **5440** **CC** (which was **47.8%** of the squad) on **Titanspawns** and similar.
-## [GREAT MVP : DaMo, Scapegoat, ThirdOrigin, Jilo with 3 titles]
-## [GREAT LVP : Mooshh with 4 titles]
-## [LOWEST MVP : SmG Phoenix, Master Dragon with 0 titles]
-## [LOWEST LVP : Asurch, SmG Phoenix, Scapegoat with 1 titles]
-## Total time : 20m59s
-## Average wingman grade : 73.67%:wing:
+* __Samara__ thanks for doing **5850** **CC** (**33.3%** of the squad)
+* Looks like __Beauty Pageant__ / __Incinerate This__ / __Kev The Troublesome__ are **pylon kiters** today. At least these DPS players contribute **something** to the society.
