@@ -369,17 +369,24 @@ class Boss:
     
     # Check if person was using writs
     def get_writ_user(self, i_player: int):
-        Cons = self.log.pjcontent["players"][i_player]['consumables']
-        for util in Cons:
-            # Writ of Masterful Strength
-            if util['id'] == 33297:
-                return True
-            # Writ of Masterful Malice
-            if util['id'] == 33836:
-                return True
-            # Writ of Learned Malice
-            if util['id'] == 31959:
-                return True
+        
+        food = 1
+        if "consumables" in self.log.pjcontent["players"][i_player].keys():
+            Cons = self.log.pjcontent["players"][i_player]['consumables']
+        else: # No food
+            food = 0
+
+        if food == 1:
+            for util in Cons:
+                # Writ of Masterful Strength
+                if util['id'] == 33297:
+                    return True
+                # Writ of Masterful Malice
+                if util['id'] == 33836:
+                    return True
+                # Writ of Learned Malice
+                if util['id'] == 31959:
+                    return True
             
         return False
 

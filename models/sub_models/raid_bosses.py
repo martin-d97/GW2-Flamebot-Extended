@@ -1627,6 +1627,10 @@ class MO(Boss):
             
             cleave_total = self.log.pjcontent['players'][i]['dpsAll'][0]['damage']
             
+            # Exception
+            if boss_total == 0:
+                continue
+            # Get people
             if cleave_total / boss_total > 1.10:
                 i_players.append(i)
         if len(i_players) > 0:
@@ -3086,7 +3090,7 @@ class ADINA(Boss):
         mvplist = "**MVPs** \n"
         
         # Check for mechanics
-        msg_bad_dps = self.mvp_dmg_split()
+        msg_bad_dps = self.get_bad_dps()
         msg_blinded = self.mvp_adina_blinded()
         msg_knockback = self.mvp_adina_knockback()
         msg_bad_boons = self.get_bad_boons('Full Fight')
@@ -3116,7 +3120,7 @@ class ADINA(Boss):
         lvplist = "\n**LVPs** \n"
         
         # Check for mechanics
-        msg_good_split = self.lvp_dmg_split()
+        msg_good_split = self.get_lvp_dps_PMA()
         msg_good_bdps = self.get_lvp_bdps_PMA()
         msg_general = self.get_lvp_general('Full Fight')
         
