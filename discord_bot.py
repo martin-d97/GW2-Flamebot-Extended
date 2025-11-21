@@ -10,8 +10,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 
 
-# Intents: message_content is required to read message content (enable in developer portal)
-load_dotenv()  # load variables from .env if present
+load_dotenv()  
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -108,17 +107,17 @@ def split_preserving_markup(text, limit=1900):
         push_current()
         return parts
 
-GUILD_ID = 1439768488326594593  # Replace with your server's ID
 
 
-@bot.slash_command(name="flame", description="Run flame analysis for provided dps.report URL(s).", guild_ids=[GUILD_ID])
+
+@bot.slash_command(name="flame", description="Run flame analysis for provided dps.report URL(s).")
 async def flame(ctx, urls: str):
     """Run the flame analysis for one or more `https://dps.report/...` URLs passed as the `urls` option.
 
     Usage:
       `/flame urls:<urls>` - provide one or more URLs separated by spaces or newlines
     """
-    # Acknowledge the interaction to avoid "The application did not respond"
+
     await ctx.defer()
 
     # Extract URLs from the provided parameter
@@ -189,6 +188,6 @@ async def flame(ctx, urls: str):
 if __name__ == "__main__":
     token = os.getenv("DISCORD_TOKEN")
     if not token:
-        print("Error: Discord token not found. Ensure your .env contains DISCORD_TOKEN (or BOT_TOKEN/TOKEN) or set the environment variable.")
+        print("Error: Discord token not found. Ensure your .env contains DISCORD_TOKEN or set the environment variable.")
         sys.exit(1)
     bot.run(token)
