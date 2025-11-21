@@ -6,6 +6,8 @@ import subprocess
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+import tempfile
+import uuid
 
 
 load_dotenv()  
@@ -13,7 +15,15 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(intents=intents, command_prefix="/")
-
+def cleanup(temp_input_path, temp_output_path):
+    try:
+        if os.path.exists(temp_input_path):
+            os.remove(temp_input_path)
+        if os.path.exists(temp_output_path):
+            os.remove(temp_output_path)
+    except Exception as e:
+        print(f"Failed to clean up temp files: {e}")
+    return
 def split_preserving_markup(text, limit=1900):
         # Split text into segments: fenced blocks (``` or ~~~) and normal text
         fence_pattern = re.compile(r'(```.*?```|~~~.*?~~~)', re.DOTALL)
@@ -124,10 +134,14 @@ async def flame(ctx, urls: str):
         await ctx.followup.send("No valid dps.report URLs found in the `urls` option. Provide one or more `https://dps.report/...` URLs.")
         return
 
-    # Write temporary input file for the existing InputParser
-    temp_path = os.path.join(os.getcwd(), "discord_temp_input.txt")
+    # Generate unique temporary files for this request to avoid conflicts with concurrent requests
+    unique_id = str(uuid.uuid4())
+    temp_input_path = os.path.join(tempfile.gettempdir(), f"discord_temp_input_{unique_id}.txt")
+    temp_output_path = os.path.join(tempfile.gettempdir(), f"Flame_Output_{unique_id}.txt")
+    
     try:
-        with open(temp_path, "w", encoding="utf-8") as f:
+        # Write temporary input file for the existing InputParser
+        with open(temp_input_path, "w", encoding="utf-8") as f:
             for u in provided_urls:
                 f.write(u.strip() + "\n")
     except Exception as e:
@@ -140,7 +154,10 @@ async def flame(ctx, urls: str):
     def run_main_subprocess():
         main_path = os.path.join(os.getcwd(), "main.py")
         try:
-            proc = subprocess.run([sys.executable, main_path, "-i", temp_path], cwd=os.getcwd(), capture_output=True, text=True)
+            # Set environment variable to tell main.py where to write output
+            env = os.environ.copy()
+            env["FLAME_OUTPUT_PATH"] = temp_output_path
+            proc = subprocess.run([sys.executable, main_path, "-i", temp_input_path], cwd=os.getcwd(), capture_output=True, text=True, env=env)
             return proc
         except Exception:
             raise
@@ -149,18 +166,18 @@ async def flame(ctx, urls: str):
         proc = await asyncio.get_running_loop().run_in_executor(None, run_main_subprocess)
     except Exception as e:
         await notify.edit(content=f"Error while running analysis: {e}")
+        cleanup(temp_input_path, temp_output_path)
         return
 
     output = ""
-    out_path = os.path.join(os.getcwd(), "Flame_Output.txt")
     try:
-        with open(out_path, "r", encoding="utf-8") as f:
+        with open(temp_output_path, "r", encoding="utf-8") as f:
             output = f.read()
     except Exception as e:
         print(f"Failed to read output file: {e}")
         output = None
-
         await notify.edit(content="Analysis finished but produced no output.")
+        cleanup(temp_input_path, temp_output_path)
         return
 
     # Discord limits messages to ~2000 chars. We send the output as multiple messages   
@@ -168,18 +185,15 @@ async def flame(ctx, urls: str):
     
     if not parts:
         await notify.edit(content="Analysis finished but produced no output.")
+        cleanup(temp_input_path, temp_output_path)
         return
     total = len(parts)
     await notify.edit(content=f"{parts[0]}")
     for i in range(1, total):
         await ctx.followup.send(f"{parts[i]}")
-    # Clear the output file after it has been consumed so next run starts fresh
-    try:
-        with open(out_path, "w", encoding="utf-8") as f:
-            f.write("")
-    except Exception as e:
-        print(f"Failed to clear output file: {e}")
-    return
+    
+    # Clean up temp files after sending output
+    cleanup(temp_input_path, temp_output_path)
  
 
 
