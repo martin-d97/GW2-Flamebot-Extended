@@ -8,7 +8,11 @@ services:
       - .env
     restart: unless-stopped
     # Run the bot entrypoint
-    command: python discord_bot.py keep_alive.py
+    # Start the keep-alive HTTP server (binds a port) and the Discord bot.
+    # Keep the Discord bot in foreground so the container remains running.
+    command: sh -c "python keep_alive.py & python discord_bot.py"
+    ports:
+      - "8080:8080"
     # Uncomment and use a volume if you want to edit code on the host and reflect changes in container
     # volumes:
     #   - ./:/app

@@ -17,4 +17,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files (note: `.env` is excluded via .dockerignore)
 COPY . .
 
-CMD ["python", "discord_bot.py", "keep_alive.py"]
+# Expose keep-alive HTTP port so hosting platforms can detect an open port
+EXPOSE 8080
+
+# Start keep_alive server (binds port) and then the Discord bot.
+# Use a shell form so both processes can be started; keep the bot in foreground.
+CMD ["sh", "-c", "python keep_alive.py & python discord_bot.py"]
