@@ -1,12 +1,10 @@
 import os
 import re
-import io
 import sys
 import asyncio
 import subprocess
 import discord
 from discord.ext import commands
-
 from dotenv import load_dotenv
 
 

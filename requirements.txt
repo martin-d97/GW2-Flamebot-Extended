@@ -1,7 +1,6 @@
 requests
 numpy
 grequests
-pycord
+py-cord
 pytz
 python-dotenv>=1.0.0
-discord
