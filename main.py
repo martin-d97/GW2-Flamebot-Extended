@@ -9,7 +9,8 @@ from models.log_class import Log
 from models.boss_facto import BossFactory
 from languages import LANGUES
 from input import InputParser
-
+import time
+import random
 def _make_parser() -> ArgumentParser:
     parser = ArgumentParser()
     parser.add_argument('-d', '--debug', action='store_true', required=False)
@@ -35,11 +36,14 @@ def debugLog(url):
 
 def main(input_file, **kwargs) -> None:
     urls = InputParser(input_file).validate().urls
-    requests = []
+    requests_list = []
+
     for url in urls:
-        requests.append(grequests.get(url))
-        requests.append(grequests.get(DPS_REPORT_JSON_URL+url, headers=REQUEST_HEADERS))
-    responses = grequests.map(requests, size=2*len(urls))
+        requests_list.append(grequests.get(url))
+        requests_list.append(grequests.get(DPS_REPORT_JSON_URL + url, headers=REQUEST_HEADERS))
+        time.sleep(random.uniform(0.3, 0.8))  # 300–800ms random delay
+
+    responses = grequests.map(requests_list, size=4)  # small concurrency
     logs = [Log(url) for url in urls]
     for i in range(len(urls)):
         logs[i].set_jcontent(responses[2*i])

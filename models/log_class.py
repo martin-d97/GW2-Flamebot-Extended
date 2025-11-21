@@ -14,4 +14,18 @@ class Log:
         self.jcontent  = json.loads(java_data_text)
 
     def set_pjcontent(self, http_response):
-        self.pjcontent = http_response.json()
+        # Guard against None responses (network error) and invalid JSON
+        if http_response is None:
+            print(f"set_pjcontent: http_response is None for url={self.url}")
+            self.pjcontent = None
+            return
+
+        try:
+            self.pjcontent = http_response.json()
+        except Exception as e:
+            # Could be requests.exceptions.JSONDecodeError or ValueError
+            resp_info = getattr(http_response, 'url', '<no-url>')
+            status = getattr(http_response, 'status_code', '<no-status>')
+            print(f"Failed to parse JSON from response (url={resp_info}, status={status}): {e}")
+            # Fallback: mark as None so downstream code (BossFactory) will skip this log
+            self.pjcontent = None
