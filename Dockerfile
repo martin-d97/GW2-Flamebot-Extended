@@ -17,6 +17,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files (note: `.env` is excluded via .dockerignore)
 COPY . .
 
-
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["python", "discord_bot.py"]
