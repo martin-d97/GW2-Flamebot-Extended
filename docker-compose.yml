@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  flamebot:
+    build: .
+    container_name: flamebot
+    env_file:
+      - .env
+    restart: unless-stopped
+    # Run the bot entrypoint
+    command: python discord_bot.py
+    # Uncomment and use a volume if you want to edit code on the host and reflect changes in container
+    # volumes:
+    #   - ./:/app

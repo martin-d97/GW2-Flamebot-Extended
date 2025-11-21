@@ -1,4 +1,14 @@
 .env
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+venv/
+env/
+dist/
+build/
+*.egg-info
+.env
 .idea
 .vscode
 node_modules
