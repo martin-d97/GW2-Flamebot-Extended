@@ -4,3 +4,4 @@ grequests
 pycord
 pytz
 python-dotenv>=1.0.0
+discord
